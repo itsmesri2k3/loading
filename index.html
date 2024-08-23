@@ -3,107 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loading Page</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 
-    body {
-        background-color: #121212;
-        color: rgb(161, 161, 161);
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column; /* Arrange items in a column */
-        align-items: center;
-        justify-content: center;
-        font-family: "Protest Riot", sans-serif;
-        text-align: center;
-    }
+        body {
+            background-color: #121212;
+            color: rgb(161, 161, 161);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Protest Riot", sans-serif;
+            text-align: center;
+        }
 
-    .loading {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px; /* Adjust spacing between letters */
-        overflow: hidden;
-    }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+        }
 
-    .loading span {
-        display: inline-block;
-        padding: 2px;
-        font-size: 15px;
-        transform: translateY(70px);
-        animation: moveup 3s linear infinite;
-        background: linear-gradient(to right, #F3BB61, #F2DF7B);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        -webkit-text-fill-color: transparent;
-    }
-
-    @media (max-width: 800px) {
         .loading span {
-            font-size: 12px;
+            display: inline-block;
+            padding: 2px;
+            font-size: 15px;
+            transform: translateY(100%);
+            animation: moveup 1.5s ease-in-out infinite;
+            color: aliceblue;
+            opacity: 0;
         }
-    }
 
-    @keyframes moveup {
-        0% {
-            transform: translateY(70px);
+        @media (max-width: 800px) {
+            .loading span {
+                font-size: 12px;
+            }
         }
-        20% {
-            transform: translateY(0px);
+
+        @keyframes moveup {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            20% {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+            80% {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
         }
-        100% {
-            transform: translateY(0px);
+
+        .loading span:nth-child(2) { animation-delay: 0.1s; }
+        .loading span:nth-child(3) { animation-delay: 0.2s; }
+        .loading span:nth-child(4) { animation-delay: 0.3s; }
+        .loading span:nth-child(5) { animation-delay: 0.4s; }
+        .loading span:nth-child(6) { animation-delay: 0.5s; }
+        .loading span:nth-child(7) { animation-delay: 0.6s; }
+
+        .attribution {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 3px;
         }
-    }
 
-    .loading span:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    .loading span:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-    .loading span:nth-child(4) {
-        animation-delay: 0.6s;
-    }
-    .loading span:nth-child(5) {
-        animation-delay: 0.8s;
-    }
-    .loading span:nth-child(6) {
-        animation-delay: 1s;
-    }
-    .loading span:nth-child(7) {
-        animation-delay: 1.2s;
-    }
-    .loading span:nth-child(8) {
-        animation-delay: 1.4s;
-    }
-    .loading span:nth-child(9) {
-        animation-delay: 1.6s;
-    }
-    .loading span:nth-child(10) {
-        animation-delay: 1.8s;
-    }
+        label {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
 
-    .attribution {
-        position: absolute;
-        margin-top: 500px;
-        display: flex; 
-        gap: 3px;
-    }
+        .attribution h6, .attribution h5 {
+            margin: 0;
+            font-weight: 100;
+            color: darkgray;
+        }
 
-    label{
-        display: flex;
-        align-items: center;
-        gap: 3px;
-    }
-
-    .attribution h6, .attribution h5 {
-        margin: 0;
-        font-weight: 100;
-    }
+        .attribution h5 {
+            background: linear-gradient(to right, #F3BB61, #F2DF7B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -115,21 +107,17 @@
         <span>I</span>
         <span>N</span>
         <span>G</span>
-        <span>.</span>
-        <span>.</span>
-        <span>.</span>
     </div>
     <div class="attribution">
        <label>
         <h6>Designed by</h6>
-       <h5>RAAMVOX</h5>
+        <h5>RAAMVOX</h5>
        </label>
     </div>
     <script>
         setTimeout(function() {
             window.location.href = 'https://sriraamprabu.vercel.app';
-        }, 5000); // 5000 milliseconds = 5 seconds
+        }, 4000);
     </script>
-    
 </body>
 </html>
