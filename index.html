@@ -1,123 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card UI Design</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+      /* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 
-        body {
-            background-color: #121212;
-            color: rgb(161, 161, 161);
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: "Protest Riot", sans-serif;
-            text-align: center;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Protest Riot", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+  width: 100%;
+  background-color: rgb(189, 189, 189);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border: 2px solid rgb(117, 117, 117);
+  border-radius: 24px;
+  margin: 10px;
+  padding-top: 15px;
+  position: relative;
+}
+.profile-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 25%;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  background-color: rgb(117, 117, 117);
+}
+.image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(117, 117, 117);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.image .profile-img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 10px solid rgb(189, 189, 189);
+}
+.profile-card .text-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+.text-data .name {
+  font-size: 22px;
+  font-weight: 500;
+}
+.text-data .job {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 5px;
+}
 
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            overflow: hidden;
-        }
+.profile-card .buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.buttons .button {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  border-radius: 24px;
+  margin: 0 10px;
+  padding: 8px 24px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-color: rgb(117, 117, 117);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.buttons .button:hover {
+  background-color: #333;
+}
+.profile-card .analytics {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.analytics .data {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: larger;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+.analytics .data:hover{
+  color: rgb(117, 117, 117);
+}
 
-        .loading span {
-            display: inline-block;
-            padding: 2px;
-            font-size: 15px;
-            transform: translateY(100%);
-            animation: moveup 1.5s ease-in-out infinite;
-            color: aliceblue;
-            opacity: 0;
-        }
 
-        @media (max-width: 800px) {
-            .loading span {
-                font-size: 12px;
-            }
-        }
-
-        @keyframes moveup {
-            0% {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            20% {
-                transform: translateY(0%);
-                opacity: 1;
-            }
-            80% {
-                transform: translateY(0%);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-        }
-
-        .loading span:nth-child(2) { animation-delay: 0.1s; }
-        .loading span:nth-child(3) { animation-delay: 0.2s; }
-        .loading span:nth-child(4) { animation-delay: 0.3s; }
-        .loading span:nth-child(5) { animation-delay: 0.4s; }
-        .loading span:nth-child(6) { animation-delay: 0.5s; }
-        .loading span:nth-child(7) { animation-delay: 0.6s; }
-
-        .attribution {
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            gap: 3px;
-        }
-
-        label {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .attribution h6, .attribution h5 {
-            margin: 0;
-            font-weight: 100;
-            color: darkgray;
-        }
-
-        .attribution h5 {
-            background: linear-gradient(to right, #F3BB61, #F2DF7B);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
-</head>
-<body>
-    <div class="loading">
-        <span>L</span>
-        <span>O</span>
-        <span>A</span>
-        <span>D</span>
-        <span>I</span>
-        <span>N</span>
-        <span>G</span>
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="profile-card">
+      <div style="z-index: 100; display: flex; justify-content: end; width: 100%; padding-right: 20px; padding-top: 20px;"><i class="fa-regular fa-circle-xmark fa-xl" style="color: #333;"></i></div>
+      <div class="image">
+        <img src="No BG Box Pic.png" alt="" class="profile-img">
+      </div>
+
+      <div class="text-data">
+        <span class="name">SRIRAAM PRABU</span>
+        <span class="job">Full Stack Developer</span>
+      </div>
+
+      <div class="analytics">
+        <div class="data">
+          <i class="fa-brands fa-square-github"></i>
+          <span class="number"></span>
+        </div>
+        <div class="data">
+          <i class="fa-brands fa-linkedin"></i>
+          <span class="number"></span>
+        </div>
+        <div class="data">
+          <i class="fa-brands fa-square-upwork"></i>
+          <span class="number"></span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="button">About Me</button>
+      </div><br>
+
+     
     </div>
-    <div class="attribution">
-       <label>
-        <h6>Designed by</h6>
-        <h5>RAAMVOX</h5>
-       </label>
-    </div>
-    <script>
-        setTimeout(function() {
-            window.location.href = 'https://sriraamprabu.vercel.app';
-        }, 4000);
-    </script>
-</body>
+  </body>
+  <script src="https://kit.fontawesome.com/f8e1a90484.js"></script>
 </html>
